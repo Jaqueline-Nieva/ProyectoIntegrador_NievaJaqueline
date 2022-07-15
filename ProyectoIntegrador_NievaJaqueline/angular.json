@@ -23,9 +23,12 @@
               "src/assets"
             ],
             "styles": [
+              "ProyectoIntegrador_NievaJaqueline/node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            "ProyectoIntegrador_NievaJaqueline/node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
           },
           "configurations": {
             "production": {
