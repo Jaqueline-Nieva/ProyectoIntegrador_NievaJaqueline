@@ -5,5 +5,34 @@
 div{
     background-color: black;
     text-align: center;
-
 }
+
+/**Foto de perfil**/
+@media (min-width: 576px){
+    #fotoperfil{
+       position: absolute;
+       width: 15%;
+       border-radius: 100%;
+       left: 3%;
+       top: 115%;
+    }
+}
+@media (max-width: 575px){
+    #fotoperfil{
+       position: absolute;
+       width: 30%;
+       border-radius: 100%;
+       left: 35%;
+       top: 35%;
+    }
+}
+/** Etiqueta nombre **/
+#nombre{
+ font-weight: bold;
+ margin-top: 30%;
+ font-size: 20px;
+}
+
+#titulo{
+    font-weight: bold;
+   }
