@@ -1,0 +1,25 @@
+.row{
+    padding: 30px;
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+#titulo{
+    font-weight: bold;
+    text-align: center;
+}
+
+h2,h4{
+    display: inline;
+}
+
+h2{
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+}
+
+h4{
+    font-style: italic;
+    font-size: larger;
+    color: rgb(163, 163, 163);
+}
