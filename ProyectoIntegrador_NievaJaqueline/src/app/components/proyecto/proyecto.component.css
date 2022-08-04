@@ -3,8 +3,19 @@
     background-color: rgb(0, 0, 0);
     color: white;
 }
+.contendor{
+    width: auto;
+}
 
 h1{
     font-weight: bold;
     text-align: center;
+}
+.parte1, .parte2{
+    display: inline-block;
+    text-align: left;
+}
+
+.img-proyecto{
+  box-shadow: 5px 5px 1px rgb(168, 3, 3);
 }
