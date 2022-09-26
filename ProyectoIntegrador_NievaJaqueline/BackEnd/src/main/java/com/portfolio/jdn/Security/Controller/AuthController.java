@@ -4,6 +4,9 @@
  */
 package com.portfolio.jdn.Security.Controller;
 
+import com.portfolio.jdn.Security.Dto.JwtDto;
+import com.portfolio.jdn.Security.Dto.LoginUsuario;
+import com.portfolio.jdn.Security.Dto.NuevoUsuario;
 import com.portfolio.jdn.Security.Entity.Rol;
 import com.portfolio.jdn.Security.Entity.Usuario;
 import com.portfolio.jdn.Security.Enums.RolNombre;
@@ -42,17 +45,17 @@ public class AuthController {
     @Autowired
     RolService rolService;
     @Autowired
-    JwtProvider JwtProvider;
+    JwtProvider jwtProvider;
     
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("Campos mal puestos o email invalido"),HttpStatus.BAD_REQUEST);
    
-        if(usuarioService.existByNombreUsuario(nombreUsuario.getNombreUsuario()))
+        if(usuarioService.existByNombreUsuario(nuevoUsuario.getNombreUsuario()))
             return new ResponseEntity(new Mensaje("Ese nombre de usuario ya existe"), HttpStatus.BAD_REQUEST);
    
-        if(usuarioService.existByEmail(nombreUsuario.getEmail()))
+        if(usuarioService.existByEmail(nuevoUsuario.getEmail()))
             return new ResponseEntity(new Mensaje("Ese email ya existe"), HttpStatus.BAD_REQUEST);
    
       Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(),
@@ -68,8 +71,9 @@ public class AuthController {
       
       return new ResponseEntity(new Mensaje("Usuario guardado"),HttpStatus.CREATED);
     }
-      
-    public ResponseEntity<JwtDTO> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult){
+    
+    @PostMapping("/login")
+    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult){
         if(bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);
           
